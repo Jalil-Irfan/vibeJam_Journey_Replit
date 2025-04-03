@@ -84,12 +84,12 @@ export const WALKTHROUGH_VIDEOS = [
   {
     title: "Level Design & Obstacles",
     subtitle: "LagRange Development Part 2",
-    youtubeUrl: "https://youtu.be/uX1dXMQXrZM"
+    youtubeUrl: "https://youtu.be/WLzMej8Gnaw"
   },
   {
     title: "Sponsorship System",
     subtitle: "LagRange Development Part 3",
-    youtubeUrl: "https://youtu.be/9szGDqoZ-tA"
+    youtubeUrl: "https://youtu.be/b-GMWisrnxE"
   },
   {
     title: "Adding Music Player",

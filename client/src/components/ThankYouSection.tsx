@@ -6,39 +6,52 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 const contributors = [
   {
     name: "Pieter Levels",
-    icon: "fas fa-user"
+    icon: "fas fa-user",
+    connect: "https://x.com/levelsio"
   },
   {
     name: "ChatGPT",
-    icon: "fas fa-robot"
+    icon: "fas fa-robot",
+    connect: "https://openai.com/"
   },
   {
     name: "Cursor",
-    icon: "fas fa-terminal"
+    icon: "fas fa-terminal",
+    connect: "https://www.cursor.com/"
   },
   {
     name: "Replit",
-    icon: "fas fa-code"
+    icon: "fas fa-code",
+    connect: "https://replit.com/"
   },
   {
     name: "Google Gemini",
-    icon: "fas fa-brain"
+    icon: "fas fa-brain",
+    connect: "https://gemini.google.com/app"
   },
   {
     name: "GitHub Co-Pilot",
-    icon: "fas fa-code-branch"
+    icon: "fas fa-code-branch",
+    connect: "https://github.com/features/copilot"
   },
   {
     name: "Microsoft Visual Studio",
-    icon: "fas fa-window-maximize"
+    icon: "fas fa-window-maximize",
+    connect: "https://code.visualstudio.com/"
   },
   {
     name: "Chrome",
-    icon: "fab fa-chrome"
+    icon: "fab fa-chrome",
+    connect: "https://www.google.com/chrome/what-you-make-of-it/"
   },
   {
     name: "Safari",
-    icon: "fab fa-safari"
+    icon: "fab fa-safari",
+    connect: "https://www.apple.com/in/safari/"
+  },
+  { name: "Zafree",
+    icon: "fas fa-user",
+    connect: "https://www.instagram.com/am_zafff/"
   }
 ];
 
@@ -90,6 +103,14 @@ export default function ThankYouSection() {
                 <i className={`${contributor.icon} text-purple-300`}></i>
               </div>
               <h3 className="font-montserrat font-bold text-sm">{contributor.name}</h3>
+              <a 
+                href={contributor.connect} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-purple-300 hover:text-white transition-colors mt-2 inline-block"
+              >
+                <i className="fas fa-link"></i>
+              </a>
             </div>
           ))}
         </div>

@@ -111,7 +111,7 @@ export default function GameSection() {
                   e.preventDefault();
                   navigator.share({
                     title: 'LagRange Game',
-                    text: 'Check out this awesome space physics game!',
+                    text: 'Check out this awesome space physics game! #uyar #vibejam',
                     url: 'https://jalil-irfan.github.io/cursor-physicsgame/'
                   }).catch(err => {
                     window.open('https://twitter.com/intent/tweet?text=Check out this awesome space physics game!&url=https://jalil-irfan.github.io/cursor-physicsgame/', '_blank');

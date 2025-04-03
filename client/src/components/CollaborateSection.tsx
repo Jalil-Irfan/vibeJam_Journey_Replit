@@ -98,14 +98,14 @@ export default function CollaborateSection() {
                   custom integrations available upon request.
                 </p>
                 
-                <div className="flex flex-col space-y-2">
+                {/* <div className="flex flex-col space-y-2">
                   <a href="mailto:sponsorship@example.com" className="text-blue-400 hover:text-white transition-colors inline-flex items-center">
                     <i className="fas fa-envelope mr-2"></i> sponsorship@example.com
                   </a>
                   <a href="https://twitter.com/Jalil_Irfan" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white transition-colors inline-flex items-center">
                     <i className="fab fa-twitter mr-2"></i> @Jalil_Irfan
                   </a>
-                </div>
+                </div> */}
               </div>
               
               <div>
@@ -117,11 +117,45 @@ export default function CollaborateSection() {
                   If you're interested in working together on future projects or have ideas for
                   improving LagRange, I'd love to hear from you!
                 </p>
-                
-                <a href="#" className="bg-primary hover:bg-primary/80 text-white font-bold py-3 px-6 rounded-full inline-flex items-center transition-all transform hover:scale-105">
-                  <i className="fas fa-paper-plane mr-2"></i> Get in Touch
-                </a>
               </div>
+            </div>
+            <div className="flex justify-center space-x-6 mb-6 md:mb-0">
+              <a
+                href="https://twitter.com/Jalil_Irfan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative text-purple-300 hover:text-white transition-colors"
+              >
+                <div className="absolute inset-0 w-12 h-12 bg-purple-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <i className="fab fa-twitter text-4xl"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/jalilirfan/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative text-purple-300 hover:text-white transition-colors"
+              >
+                <div className="absolute inset-0 w-12 h-12 bg-pink-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <i className="fab fa-instagram text-4xl"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/jalil-irfan/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative text-purple-300 hover:text-white transition-colors"
+              >
+                <div className="absolute inset-0 w-12 h-12 bg-blue-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <i className="fab fa-linkedin text-4xl"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/@jalilirfan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative text-purple-300 hover:text-white transition-colors"
+              >
+                <div className="absolute inset-0 w-12 h-12 bg-red-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <i className="fab fa-youtube text-4xl"></i>
+              </a>
             </div>
           </div>
         </div>
