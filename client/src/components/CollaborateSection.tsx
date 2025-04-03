@@ -54,22 +54,26 @@ export default function CollaborateSection() {
     <section id="collaborate" className="relative py-20 md:py-32 bg-gradient-to-b from-black to-primary/30">
       <div className="container mx-auto px-4">
         {/* Floating elements */}
-        <div className="absolute top-1/4 left-1/5 transform -translate-x-1/2 -translate-y-1/2 opacity-30 z-0 hidden md:block">
-          <img 
-            ref={earthRef}
-            src="https://images.unsplash.com/photo-1614728894747-a83421789021?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
-            alt="Earth" 
-            className="w-24 h-24 object-cover rounded-full animate-spin-slow"
-          />
+        <div className="absolute top-1/4 left-1/5 transform -translate-x-1/2 -translate-y-1/2 opacity-80 z-0 hidden md:block">
+          <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg">
+            <img 
+              ref={earthRef}
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/The_Blue_Marble_%28remastered%29.jpg/1200px-The_Blue_Marble_%28remastered%29.jpg" 
+              alt="Earth" 
+              className="w-full h-full object-cover rounded-full animate-spin-slow"
+            />
+          </div>
         </div>
         
-        <div className="absolute bottom-1/3 right-1/4 transform translate-x-1/2 translate-y-1/2 opacity-20 z-0 hidden md:block">
-          <img 
-            ref={satelliteRef}
-            src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-            alt="Satellite" 
-            className="w-16 h-16 object-cover rounded-full float-element"
-          />
+        <div className="absolute bottom-1/3 right-1/4 transform translate-x-1/2 translate-y-1/2 opacity-70 z-0 hidden md:block">
+          <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg">
+            <img 
+              ref={satelliteRef}
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/1200px-FullMoon2010.jpg" 
+              alt="Moon" 
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
         </div>
         
         {/* Content */}

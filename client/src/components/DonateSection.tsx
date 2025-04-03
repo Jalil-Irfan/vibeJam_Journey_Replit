@@ -56,10 +56,10 @@ export default function DonateSection() {
           </p>
         </div>
         
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Ko-Fi */}
           <div className="donation-card bg-black/60 backdrop-blur-sm p-6 rounded-lg border border-primary/30 hover:border-primary/60 transition-all">
-            <div className="text-center mb-6">
+            <div className="text-center mb-4">
               <div className="w-16 h-16 rounded-full bg-blue-500 flex items-center justify-center mx-auto mb-4">
                 <i className="fas fa-mug-hot text-white text-2xl"></i>
               </div>
@@ -69,25 +69,14 @@ export default function DonateSection() {
               </p>
             </div>
             
-            <div className="bg-white p-4 rounded-lg mb-6 flex justify-center items-center">
-              <a href="https://ko-fi.com/nandri" target="_blank" rel="noopener noreferrer">
-                <img 
-                  src="https://cdn.ko-fi.com/cdn/kofi5.png" 
-                  alt="Buy Me a Coffee at ko-fi.com" 
-                  className="h-10"
-                />
-              </a>
-            </div>
-            
-            <div className="text-center">
-              <a 
-                href="https://ko-fi.com/nandri" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full inline-flex items-center transition-all"
-              >
-                <i className="fas fa-external-link-alt mr-2"></i> Visit Ko-Fi Page
-              </a>
+            <div className="bg-[#f9f9f9] rounded-lg mb-4 overflow-hidden">
+              <iframe 
+                id='kofiframe' 
+                src='https://ko-fi.com/nandri/?hidefeed=true&widget=true&embed=true&preview=true' 
+                style={{ border: 'none', width: '100%', padding: '4px', background: '#f9f9f9' }} 
+                height='712' 
+                title='nandri'
+              ></iframe>
             </div>
           </div>
           
@@ -103,11 +92,12 @@ export default function DonateSection() {
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg mb-6 text-center">
-              <div className="bg-gray-100 p-4 rounded inline-block mb-4">
-                <i className="fas fa-qrcode text-6xl text-gray-400"></i>
-              </div>
-              <p className="text-gray-800 font-bold">jalil.irfan@okaxis</p>
+            <div className="bg-white p-4 rounded-lg mb-6 flex justify-center items-center">
+              <img 
+                src="/upi-qr.jpg" 
+                alt="UPI QR Code" 
+                className="max-w-full h-auto rounded-lg shadow-lg max-h-[400px]" 
+              />
             </div>
             
             <div className="text-center">

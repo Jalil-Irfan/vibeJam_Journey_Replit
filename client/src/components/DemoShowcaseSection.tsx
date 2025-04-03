@@ -73,8 +73,8 @@ export default function DemoShowcaseSection() {
         </div>
         
         {/* Demo Carousel */}
-        <div ref={carouselRef} className="relative max-w-6xl mx-auto">
-          <div className="relative overflow-hidden rounded-lg border border-primary/30 bg-black/50 backdrop-blur-sm p-6">
+        <div ref={carouselRef} className="relative max-w-6xl mx-auto pb-16">
+          <div className="relative overflow-hidden rounded-lg border border-primary/30 bg-black/50 backdrop-blur-sm p-4 md:p-8">
             {/* Map through video pairs */}
             {videoPairs.map((pair, pairIndex) => (
               <div 
@@ -82,16 +82,16 @@ export default function DemoShowcaseSection() {
                 className={`demo-slide ${pairIndex === currentSlide ? 'block' : 'hidden'}`}
                 data-index={pairIndex}
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                   {pair.map((video, videoIndex) => {
                     const videoId = getYouTubeId(video.youtubeUrl);
                     
                     return (
                       <div 
                         key={videoIndex} 
-                        className="video-card bg-black/70 rounded-lg overflow-hidden border border-primary/30"
+                        className="video-card bg-black/70 rounded-lg overflow-hidden border border-primary/30 shadow-lg hover:shadow-primary/20 transition-all hover:border-primary/50"
                       >
-                        <div className="h-[250px] sm:h-[300px] md:h-[280px] lg:h-[320px]">
+                        <div className="aspect-video h-[200px] xs:h-[250px] sm:h-[300px] md:h-[350px] lg:h-[250px] xl:h-[300px]">
                           {videoId ? (
                             <iframe 
                               src={`https://www.youtube.com/embed/${videoId}`}
@@ -107,7 +107,7 @@ export default function DemoShowcaseSection() {
                             </div>
                           )}
                         </div>
-                        <div className="p-4">
+                        <div className="p-4 md:p-6">
                           <h3 className="text-xl font-montserrat font-bold mb-2">{video.title}</h3>
                           <p className="text-purple-200 text-sm mb-4">{video.description}</p>
                           <a 
@@ -125,35 +125,37 @@ export default function DemoShowcaseSection() {
                 </div>
               </div>
             ))}
-            
-            {/* Navigation dots */}
-            <div className="absolute -bottom-10 left-0 right-0 flex justify-center space-x-3">
-              {videoPairs.map((_, index) => (
-                <button 
-                  key={index}
-                  className={`w-4 h-4 rounded-full ${currentSlide === index ? 'bg-primary' : 'bg-purple-300/50'} hover:bg-primary/80 transition-colors carousel-dot`}
-                  onClick={() => goToSlide(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                ></button>
-              ))}
+                        
+            {/* Navigation arrows - Mobile friendly */}
+            <div className="flex justify-between items-center mt-6 px-4 sm:px-6">
+              <button 
+                className="bg-primary/80 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center carousel-prev shadow-lg text-white"
+                onClick={prevSlide}
+                aria-label="Previous slide"
+              >
+                <i className="fas fa-chevron-left text-lg"></i>
+              </button>
+              
+              {/* Navigation dots */}
+              <div className="flex justify-center space-x-3">
+                {videoPairs.map((_, index) => (
+                  <button 
+                    key={index}
+                    className={`w-4 h-4 rounded-full ${currentSlide === index ? 'bg-primary' : 'bg-purple-300/50'} hover:bg-primary/80 transition-colors carousel-dot`}
+                    onClick={() => goToSlide(index)}
+                    aria-label={`Go to slide ${index + 1}`}
+                  ></button>
+                ))}
+              </div>
+              
+              <button 
+                className="bg-primary/80 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center carousel-next shadow-lg text-white"
+                onClick={nextSlide}
+                aria-label="Next slide"
+              >
+                <i className="fas fa-chevron-right text-lg"></i>
+              </button>
             </div>
-            
-            {/* Navigation arrows */}
-            <button 
-              className="absolute top-1/2 -left-5 md:-left-10 transform -translate-y-1/2 bg-primary/80 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center carousel-prev shadow-lg"
-              onClick={prevSlide}
-              aria-label="Previous slide"
-            >
-              <i className="fas fa-chevron-left text-white"></i>
-            </button>
-            
-            <button 
-              className="absolute top-1/2 -right-5 md:-right-10 transform -translate-y-1/2 bg-primary/80 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center carousel-next shadow-lg"
-              onClick={nextSlide}
-              aria-label="Next slide"
-            >
-              <i className="fas fa-chevron-right text-white"></i>
-            </button>
           </div>
         </div>
       </div>

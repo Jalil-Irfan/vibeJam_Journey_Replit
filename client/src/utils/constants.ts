@@ -82,6 +82,16 @@ export const WALKTHROUGH_VIDEOS = [
     youtubeUrl: "https://youtube.com/live/cBlJ3LxWBZg"
   },
   {
+    title: "Level Design & Obstacles",
+    subtitle: "LagRange Development Part 2",
+    youtubeUrl: "https://youtu.be/uX1dXMQXrZM"
+  },
+  {
+    title: "Sponsorship System",
+    subtitle: "LagRange Development Part 3",
+    youtubeUrl: "https://youtu.be/9szGDqoZ-tA"
+  },
+  {
     title: "Adding Music Player",
     subtitle: "LagRange Development Part 4",
     youtubeUrl: "https://youtu.be/A0jcYg5zk7g"
