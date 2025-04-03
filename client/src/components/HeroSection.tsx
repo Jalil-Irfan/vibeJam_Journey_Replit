@@ -42,20 +42,20 @@ export default function HeroSection() {
       </div>
       
       {/* 3D elements */}
-      <div ref={earthRef} className="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 z-10 opacity-60">
-        <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden">
+      <div ref={earthRef} className="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 z-10 opacity-80">
+        <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden shadow-lg">
           <img 
-            src="https://images.unsplash.com/photo-1614728894747-a83421789021?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/The_Blue_Marble_%28remastered%29.jpg/1200px-The_Blue_Marble_%28remastered%29.jpg" 
             alt="Earth" 
             className="w-full h-full object-cover rounded-full animate-spin-slow"
           />
         </div>
       </div>
       
-      <div ref={moonRef} className="absolute bottom-1/3 right-1/4 transform translate-x-1/2 translate-y-1/2 z-10 opacity-70">
-        <div className="w-20 h-20 md:w-32 md:h-32 rounded-full overflow-hidden">
+      <div ref={moonRef} className="absolute bottom-1/3 right-1/4 transform translate-x-1/2 translate-y-1/2 z-10 opacity-80">
+        <div className="w-20 h-20 md:w-32 md:h-32 rounded-full overflow-hidden shadow-lg">
           <img 
-            src="https://images.unsplash.com/photo-1532693749-35388ac3c9cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/1200px-FullMoon2010.jpg" 
             alt="Moon" 
             className="w-full h-full object-cover rounded-full"
           />

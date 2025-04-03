@@ -1,29 +1,17 @@
 import { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
+import { DEMO_VIDEOS } from '../utils/constants';
 
-// Demo videos data
-const demoVideos = [
-  {
-    title: "LagRange Desktop Demo",
-    description: "Watch the complete demo of the final game",
-    youtubeUrl: "https://youtu.be/sB_M3uI_HP0"
-  },
-  {
-    title: "3D Physics Puzzle Demo",
-    description: "A 3D physics-based puzzle game prototype",
-    youtubeUrl: "https://youtu.be/TMTSqaMpgk8"
-  },
-  {
-    title: "Fractal Drop Game Demo",
-    description: "A physics and perspective-based prototype",
-    youtubeUrl: "https://youtu.be/qm9DpX-plBE"
-  },
-  {
-    title: "Wind Drifter Demo",
-    description: "The first prototype focusing on wind physics",
-    youtubeUrl: "https://youtu.be/O5Nggp2jcRA"
+// Group videos into pairs for display (2 per slide)
+const groupVideosIntoPairs = (videos: typeof DEMO_VIDEOS) => {
+  const pairs = [];
+  for (let i = 0; i < videos.length; i += 2) {
+    pairs.push(videos.slice(i, i + 2));
   }
-];
+  return pairs;
+};
+
+const videoPairs = groupVideosIntoPairs(DEMO_VIDEOS);
 
 export default function DemoShowcaseSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -31,13 +19,13 @@ export default function DemoShowcaseSection() {
   
   const nextSlide = () => {
     setCurrentSlide((prevSlide) => 
-      prevSlide === demoVideos.length - 1 ? 0 : prevSlide + 1
+      prevSlide === videoPairs.length - 1 ? 0 : prevSlide + 1
     );
   };
   
   const prevSlide = () => {
     setCurrentSlide((prevSlide) => 
-      prevSlide === 0 ? demoVideos.length - 1 : prevSlide - 1
+      prevSlide === 0 ? videoPairs.length - 1 : prevSlide - 1
     );
   };
   
@@ -51,7 +39,7 @@ export default function DemoShowcaseSection() {
       const slides = carouselRef.current.querySelectorAll('.demo-slide');
       
       // Hide all slides first
-      slides.forEach((slide, index) => {
+      slides.forEach((slide) => {
         gsap.set(slide, {
           opacity: 0,
           display: 'none'
@@ -85,58 +73,65 @@ export default function DemoShowcaseSection() {
         </div>
         
         {/* Demo Carousel */}
-        <div ref={carouselRef} className="relative max-w-5xl mx-auto">
-          <div className="relative overflow-hidden rounded-lg border border-primary/30">
-            {/* Map through demo videos */}
-            {demoVideos.map((video, index) => {
-              const videoId = getYouTubeId(video.youtubeUrl);
-              
-              return (
-                <div 
-                  key={index}
-                  className={`demo-slide ${index === currentSlide ? 'block' : 'hidden'}`}
-                  data-index={index}
-                >
-                  <div className="aspect-w-16 aspect-h-9 bg-black">
-                    {videoId ? (
-                      <iframe 
-                        src={`https://www.youtube.com/embed/${videoId}`}
-                        title={video.title}
-                        className="w-full h-full"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      ></iframe>
-                    ) : (
-                      <div className="flex items-center justify-center text-center p-4">
-                        <div>
-                          <i className="fab fa-youtube text-6xl text-red-600 mb-4"></i>
+        <div ref={carouselRef} className="relative max-w-6xl mx-auto">
+          <div className="relative overflow-hidden rounded-lg border border-primary/30 bg-black/50 backdrop-blur-sm p-6">
+            {/* Map through video pairs */}
+            {videoPairs.map((pair, pairIndex) => (
+              <div 
+                key={pairIndex}
+                className={`demo-slide ${pairIndex === currentSlide ? 'block' : 'hidden'}`}
+                data-index={pairIndex}
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {pair.map((video, videoIndex) => {
+                    const videoId = getYouTubeId(video.youtubeUrl);
+                    
+                    return (
+                      <div 
+                        key={videoIndex} 
+                        className="video-card bg-black/70 rounded-lg overflow-hidden border border-primary/30"
+                      >
+                        <div className="h-[250px] sm:h-[300px] md:h-[280px] lg:h-[320px]">
+                          {videoId ? (
+                            <iframe 
+                              src={`https://www.youtube.com/embed/${videoId}`}
+                              title={video.title}
+                              className="w-full h-full"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                            ></iframe>
+                          ) : (
+                            <div className="flex items-center justify-center h-full text-center p-4">
+                              <i className="fab fa-youtube text-6xl text-red-600"></i>
+                            </div>
+                          )}
+                        </div>
+                        <div className="p-4">
                           <h3 className="text-xl font-montserrat font-bold mb-2">{video.title}</h3>
-                          <p className="text-purple-200">{video.description}</p>
-                          <div className="mt-4">
-                            <a 
-                              href={video.youtubeUrl} 
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="bg-primary hover:bg-primary/80 text-white font-bold py-2 px-4 rounded-full inline-flex items-center text-sm"
-                            >
-                              <i className="fas fa-play-circle mr-2"></i> Watch on YouTube
-                            </a>
-                          </div>
+                          <p className="text-purple-200 text-sm mb-4">{video.description}</p>
+                          <a 
+                            href={video.youtubeUrl} 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-primary/90 hover:bg-primary text-white font-bold py-2 px-4 rounded-full inline-flex items-center text-sm"
+                          >
+                            <i className="fas fa-play-circle mr-2"></i> Watch on YouTube
+                          </a>
                         </div>
                       </div>
-                    )}
-                  </div>
+                    );
+                  })}
                 </div>
-              );
-            })}
+              </div>
+            ))}
             
             {/* Navigation dots */}
-            <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-              {demoVideos.map((_, index) => (
+            <div className="absolute -bottom-10 left-0 right-0 flex justify-center space-x-3">
+              {videoPairs.map((_, index) => (
                 <button 
                   key={index}
-                  className={`w-3 h-3 rounded-full bg-purple-300 ${currentSlide === index ? 'opacity-100' : 'opacity-50'} hover:opacity-100 transition-opacity carousel-dot`}
+                  className={`w-4 h-4 rounded-full ${currentSlide === index ? 'bg-primary' : 'bg-purple-300/50'} hover:bg-primary/80 transition-colors carousel-dot`}
                   onClick={() => goToSlide(index)}
                   aria-label={`Go to slide ${index + 1}`}
                 ></button>
@@ -145,7 +140,7 @@ export default function DemoShowcaseSection() {
             
             {/* Navigation arrows */}
             <button 
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-primary/80 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center carousel-prev"
+              className="absolute top-1/2 -left-5 md:-left-10 transform -translate-y-1/2 bg-primary/80 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center carousel-prev shadow-lg"
               onClick={prevSlide}
               aria-label="Previous slide"
             >
@@ -153,7 +148,7 @@ export default function DemoShowcaseSection() {
             </button>
             
             <button 
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-primary/80 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center carousel-next"
+              className="absolute top-1/2 -right-5 md:-right-10 transform -translate-y-1/2 bg-primary/80 hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center carousel-next shadow-lg"
               onClick={nextSlide}
               aria-label="Next slide"
             >

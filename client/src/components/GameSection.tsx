@@ -85,24 +85,41 @@ export default function GameSection() {
           </div>
           
           {/* Game Embed */}
-          <div className="bg-black/60 backdrop-blur-sm p-4 md:p-8 rounded-lg border border-primary/30 mb-8">
-            <div className="aspect-w-16 aspect-h-9 mb-6">
+          <div className="bg-black/60 backdrop-blur-sm p-4 md:p-8 rounded-lg border border-primary/30 mb-12">
+            <div className="h-[450px] md:h-[550px] lg:h-[600px] w-full mb-8">
               <iframe 
                 src="https://jalil-irfan.github.io/cursor-physicsgame/" 
                 title="LagRange Game"
-                className="w-full h-full rounded"
+                className="w-full h-full rounded border-2 border-primary/40"
                 allowFullScreen
               ></iframe>
             </div>
             
-            <div className="text-center">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
               <a 
                 href="https://jalil-irfan.github.io/cursor-physicsgame/" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full inline-flex items-center transition-all transform hover:scale-105 glow"
+                className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full inline-flex items-center transition-all transform hover:scale-105 glow w-full sm:w-auto justify-center"
               >
                 <i className="fas fa-expand mr-2"></i> Play Full Screen
+              </a>
+              
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigator.share({
+                    title: 'LagRange Game',
+                    text: 'Check out this awesome space physics game!',
+                    url: 'https://jalil-irfan.github.io/cursor-physicsgame/'
+                  }).catch(err => {
+                    window.open('https://twitter.com/intent/tweet?text=Check out this awesome space physics game!&url=https://jalil-irfan.github.io/cursor-physicsgame/', '_blank');
+                  });
+                }}
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full inline-flex items-center transition-all transform hover:scale-105 w-full sm:w-auto justify-center"
+              >
+                <i className="fas fa-share-alt mr-2"></i> Share Game
               </a>
             </div>
           </div>
