@@ -29,6 +29,7 @@ import themePlugin from "@replit/vite-plugin-shadcn-theme-json";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 var vite_config_default = defineConfig({
+  base: "/vibeJam_Journey_Replit/",
   plugins: [
     react(),
     runtimeErrorOverlay(),
